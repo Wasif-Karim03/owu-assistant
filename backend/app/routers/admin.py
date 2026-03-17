@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
-from sqlalchemy import func, select
+from sqlalchemy import delete as sa_delete, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database import get_db
@@ -86,6 +86,20 @@ async def ingest_email(
 async def seed_database(db: AsyncSession = Depends(get_db)):
     """One-shot endpoint: scrape OWU website pages + ingest manual entries."""
     results: list[dict] = []
+
+    # 0. Delete all old manual documents so renamed/removed entries don't linger
+    old_manual = await db.execute(
+        select(Document.id).where(Document.source_type == "manual")
+    )
+    old_ids = [row[0] for row in old_manual.all()]
+    if old_ids:
+        await db.execute(
+            sa_delete(DocumentChunk).where(DocumentChunk.document_id.in_(old_ids))
+        )
+        await db.execute(
+            sa_delete(Document).where(Document.id.in_(old_ids))
+        )
+        await db.flush()
 
     # 1. Manual knowledge base
     for entry in MANUAL_KNOWLEDGE_BASE:
