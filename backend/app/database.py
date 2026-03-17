@@ -23,10 +23,17 @@ def _build_engine_args(raw_url: str) -> tuple[str, dict]:
     qs = parse_qs(parsed.query)
     connect_args: dict = {}
 
+    _STRIP_PARAMS = ("sslmode", "channel_binding")
+    changed = False
     if "sslmode" in qs:
         connect_args["ssl"] = qs.pop("sslmode")[0]
-        new_query = urlencode(qs, doseq=True)
-        parsed = parsed._replace(query=new_query)
+        changed = True
+    for param in _STRIP_PARAMS:
+        if param in qs:
+            qs.pop(param)
+            changed = True
+    if changed:
+        parsed = parsed._replace(query=urlencode(qs, doseq=True))
         url = urlunparse(parsed)
 
     is_cloud = "localhost" not in (parsed.hostname or "") and "127.0.0.1" not in (parsed.hostname or "")
