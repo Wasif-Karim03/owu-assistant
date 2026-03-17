@@ -30,9 +30,14 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+_origins = [settings.FRONTEND_URL]
+if settings.ENVIRONMENT == "production":
+    _origins.append("https://*.vercel.app")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL],
+    allow_origins=_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
