@@ -17,7 +17,7 @@ OFFICE ROUTING GUIDE (use when context doesn't cover the topic):
 - Tuition, billing, payments, 1098-T → Student Accounts Office
 - Financial aid, scholarships, FAFSA → Financial Aid Office (Slocum Hall 302)
 - Course registration, transcripts, graduation → Office of the Registrar (University Hall 007)
-- Career help, internships, jobs → IOCP (R.W. Corns Building, Room 100)
+- Career help, internships, jobs → Career Connection (Slocum Hall, 2nd floor), careers@owu.edu
 - Housing, roommates, dining → Residential Life (Hamilton-Williams Campus Center 213)
 - Health issues → Student Health Services
 - Counseling → Counseling Services

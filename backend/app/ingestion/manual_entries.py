@@ -24,17 +24,23 @@ MANUAL_KNOWLEDGE_BASE: list[dict] = [
         "metadata": {"category": "offices"},
     },
     {
-        "title": "IOCP — Intersection of Career & Professional Development",
+        "title": "Career Connection (Career Services)",
         "content": (
-            "The IOCP (Intersection of Career & Professional Development) is located "
-            "in R.W. Corns Building, Room 100.\n\n"
+            "Career Connection is OWU's career services office. It is located on "
+            "the second floor of Slocum Hall, off the reading room (the room with "
+            "the large stained glass ceiling).\n"
+            "Email: careers@owu.edu. Phone: (740) 368-3152.\n"
+            "Website: careers.owu.edu\n\n"
+            "Drop-in hours: Monday–Thursday, 11 AM – 1 PM. Students can also "
+            "schedule appointments through Handshake.\n\n"
             "Services include career counseling, résumé and cover letter reviews, "
-            "mock interviews, internship and job search support, OWU Connection "
-            "planning, and graduate school advising.\n\n"
-            "Students can book an appointment through Handshake or by emailing "
-            "the IOCP office directly. Walk-ins are welcome during open hours.\n\n"
-            "The IOCP also manages job and internship postings on Handshake, the "
-            "university's career platform."
+            "mock interviews, internship and job search support, graduate school "
+            "advising, and post-graduation planning.\n\n"
+            "Career Connection uses a 'Discover-Prepare-Launch' model to help "
+            "students explore career paths. Job and internship postings are "
+            "available on Handshake, OWU's career platform.\n\n"
+            "Note: Career Connection was formerly known as IOCP (Intersection of "
+            "Career & Professional Development). It is now called Career Connection."
         ),
         "source_type": "manual",
         "metadata": {"category": "offices"},
